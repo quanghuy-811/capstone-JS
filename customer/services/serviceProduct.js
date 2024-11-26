@@ -7,32 +7,11 @@ export const productServices = {
       method: "GET",
     });
   },
-  // deleteProduct: (id) => {
-  //   return axios({
-  //     url: BASE_URL + "/" + id,
-  //     method: "DELETE",
-  //   });
-  // },
-  // createProduct: (product) => {
-  //   return axios({
-  //     url: BASE_URL,
-  //     method: "POST",
-  //     data: product,
-  //   });
-  // },
 
-  // getProductById: (id) => {
-  //   return axios({
-  //     url: BASE_URL + "/" + id,
-  //     method: "GET",
-  //   });
-  // },
-
-  // updateProduct: (id, data) => {
-  //   return axios({
-  //     url: BASE_URL + "/" + id,
-  //     method: "PUT",
-  //     data,
-  //   });
-  // },
+  getProductById: (id) => {
+    return axios({
+      url: BASE_URL + "/" + id,
+      method: "GET",
+    });
+  },
 };

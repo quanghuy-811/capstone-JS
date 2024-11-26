@@ -1,10 +1,13 @@
+import Cart from "../models/modelCart.js";
 import { productServices } from "../services/ServiceProduct.js";
 import { getEle } from "../util/util.js";
+
+const cartModel = new Cart();
 
 const renderData = (arrData) => {
   let content = arrData
     .map(
-      ({ img, name, backCamera, screen, price }) => `
+      ({ id, img, name, backCamera, screen, price }) => `
     <div class="item__content">
           <div class="pt-8 pb-11 px-11">
             <img
@@ -48,35 +51,41 @@ const renderData = (arrData) => {
                   ${price}
                 </span>
               </div>
-              <button"
+              <button
+                onclick="addToCart('${id}')"
                 class="btn inline-flex items-center gap-2 border border-gray-300 hover:bg-gray-100 hover:text-black hover:shadow-xl transition-all duration-500">
                 <i class="fa-solid fa-cart-shopping"></i>
                 Buy Now
-                </button>
+              </button>
             </div>
           </div>
         </div>
     `
     )
     .join("");
-  console.log(content);
 
   getEle("#content").innerHTML = content;
 };
 
 const getData = () => {
-  // let data = productServices.getProduct();
-  // console.log("data: ", data);
-
   productServices
     .getProduct()
     .then((response) => {
-      console.log(response.data);
       renderData(response.data);
     })
-    .catch((err) => {
-      console.error("err: ", err);
-    });
+    .catch((err) => {});
 };
 
 getData();
+
+const addToCart = (id) => {
+  productServices
+    .getProductById(id)
+    .then((response) => {
+      cartModel.addProduct(response.data);
+    })
+    .catch((err) => {});
+  //
+};
+
+window.addToCart = addToCart;
