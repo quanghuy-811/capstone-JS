@@ -1,6 +1,6 @@
 import Cart from "../models/modelCart.js";
 import { productServices } from "../services/ServiceProduct.js";
-import { getEle } from "../util/util.js";
+import { getEle, updateCartBadge } from "../util/util.js";
 
 const cartModel = new Cart();
 
@@ -78,14 +78,38 @@ const getData = () => {
 
 getData();
 
+updateCartBadge(cartModel.totalQuantity());
+
 const addToCart = (id) => {
   productServices
     .getProductById(id)
     .then((response) => {
       cartModel.addProduct(response.data);
+
+      updateCartBadge(cartModel.totalQuantity());
     })
     .catch((err) => {});
   //
 };
 
 window.addToCart = addToCart;
+
+// Search
+getEle("#search").onclick = () => {
+  let value = getEle("#selectType").value.toLowerCase();
+
+  productServices
+    .getProduct()
+    .then((response) => {
+      const filterProduct = response.data.filter(
+        (item) => item.type.toLowerCase() === value
+      );
+
+      if (filterProduct.length > 0) {
+        renderData(filterProduct);
+      } else {
+        renderData(response.data);
+      }
+    })
+    .catch((err) => {});
+};

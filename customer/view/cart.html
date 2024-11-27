@@ -27,7 +27,7 @@
   <body>
     <!-- navbar -->
     <nav
-      class="bg-white dark:bg-gray-900 shadow-sm w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600"
+      class="bg-white dark:bg-gray-900 fixed shadow-sm w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600"
     >
       <div
         class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto py-4"
@@ -51,9 +51,10 @@
             <i class="fa fa-shopping-bag"></i>
             <span class="sr-only">Notifications</span>
             <div
+              id="cartBadge"
               class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -end-2 dark:border-gray-900"
             >
-              20
+              0
             </div>
           </a>
 
@@ -111,7 +112,7 @@
       </div>
     </nav>
     <!-- cart -->
-    <section class="bg-white py-8 antialiased md:py-16">
+    <section class="bg-white my-16 py-8 antialiased md:py-16">
       <div class="mx-auto max-w-screen-xl px-4 2xl:px-0">
         <h2 class="text-xl font-semibold text-gray-900 sm:text-2xl">
           Shopping Cart

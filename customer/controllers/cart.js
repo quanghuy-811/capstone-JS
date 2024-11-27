@@ -1,5 +1,5 @@
 import Cart from "../models/modelCart.js";
-import { getEle } from "../util/util.js";
+import { getEle, updateCartBadge } from "../util/util.js";
 const cartModel = new Cart();
 
 const sum = () => {
@@ -126,13 +126,14 @@ const renderCart = (arrCart) => {
 
   sum();
 };
-
+updateCartBadge(cartModel.totalQuantity());
 renderCart(cartModel.arrCart);
 
 // Xóa ProductCart
 const deleteProduct = (id) => {
   cartModel.delProduct(id);
   renderCart(cartModel.getCart());
+  updateCartBadge(cartModel.totalQuantity());
 };
 
 window.deleteProduct = deleteProduct;
@@ -146,6 +147,7 @@ const updateQuatity = (id, quanlity) => {
     if (sp.quanlity === 0) {
       if (window.confirm("Bạn muốn xóa không?")) {
         cartModel.delProduct(id);
+        updateCartBadge(cartModel.totalQuantity());
       } else {
         sp.quanlity = 1;
       }

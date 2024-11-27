@@ -27,7 +27,7 @@
   <body>
     <!-- navbar -->
     <nav
-      class="bg-white dark:bg-gray-900 shadow-sm w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600"
+      class="bg-white dark:bg-gray-900 fixed shadow-sm w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600"
     >
       <div
         class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto py-4"
@@ -44,16 +44,18 @@
         </a>
         <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
           <a
+            id="cart-icon"
             href="./cart.html"
             type="button"
-            class="relative inline-flex items-center p-3 text-sm font-medium text-center text-white bg-black rounded-lg hover:bg-[#61DAFB] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            class="relative inline-flex items-center p-3 text-sm font-medium text-center text-white bg-black rounded-lg hover:bg-[#61DAFB] focus:ring-4 focus:outline-none focus:ring-blue-300"
           >
             <i class="fa fa-shopping-bag"></i>
             <span class="sr-only">Notifications</span>
             <div
-              class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -end-2 dark:border-gray-900"
+              id="cartBadge"
+              class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -end-2"
             >
-              20
+              0
             </div>
           </a>
 
@@ -112,7 +114,7 @@
     </nav>
     <!-- carouser -->
 
-    <section class="relative overflow-hidden mb-20 px-8">
+    <section class="relative overflow-hidden my-20 px-8">
       <div class="flex items-center justify-between font-bold my-6 px-2">
         <h1 class="font-inter text-5xl">iPHONE</h1>
         <h3 class="text-xl">Designed to be loved.</h3>
@@ -138,8 +140,45 @@
         <i class="fa fa-pause text-xl"></i>
       </button>
     </section>
+    <!-- search -->
+    <section class="container flex items-center max-w-md">
+      <label for="simple-search" class="sr-only">Search</label>
+      <div class="relative w-full">
+        <select
+          id="selectType"
+          class="font-kode bg-gray-50 border border-gray-300 text-gray-900 font-semibold rounded-lg block w-full p-3 focus:outline-none"
+        >
+          <option selected value="CA">Brand</option>
+          <option value="iphone">Iphone</option>
+          <option value="Samsung">Samsung</option>
+        </select>
+      </div>
+      <button
+        id="search"
+        type="submit"
+        class="p-3 ms-2 text-sm font-medium text-white bg-gray-500 rounded-lg border border-gray-200 hover:bg-gray-600 hover:shadow-md transition-all duration-300"
+      >
+        <svg
+          class="w-4 h-4"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 20 20"
+        >
+          <path
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+          />
+        </svg>
+        <span class="sr-only">Search</span>
+      </button>
+    </section>
     <!-- content -->
-    <section class="font-kode container max-w-screen-xl mx-auto px-4">
+
+    <section class="font-kode container max-w-screen-xl mt-7 mx-auto px-4">
       <div
         id="content"
         class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"

@@ -14,6 +14,10 @@ export default class Cart {
     return this.arrCart;
   }
 
+  totalQuantity() {
+    return this.arrCart.length;
+  }
+
   // tổng tiền
   tinhTong() {
     let totalAmount = this.arrCart.reduce((total, item) => {
@@ -51,7 +55,7 @@ export default class Cart {
 
   // clear giỏ
   clearCart() {
-    this.arrCart = []; // Xóa toàn bộ sản phẩm trong giỏ hàng
-    localStorage.removeItem("ProductCart"); // Xóa dữ liệu giỏ hàng khỏi Local Storage
+    this.arrCart = [];
+    localStorage.removeItem("ProductCart");
   }
 }
