@@ -110,17 +110,60 @@
         </div>
       </div>
     </nav>
-    <!-- Table -->
-    <div class="h-[50vh] container mx-auto mt-10">
-      <!-- Modal toggle -->
+    <div class="mt-10 container">
       <button
         data-modal-target="crud-modal"
         data-modal-toggle="crud-modal"
-        class="mb-5 block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        class="mx-auto mb-5 block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
         type="button"
       >
         Add Product
       </button>
+      <form class="max-w-md mx-auto">
+        <label
+          for="default-search"
+          class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
+          >Search</label
+        >
+        <div class="relative">
+          <div
+            class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none"
+          >
+            <svg
+              class="w-4 h-4 text-gray-500 dark:text-gray-400"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 20 20"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+              />
+            </svg>
+          </div>
+          <input
+            type="search"
+            id="searchProduct"
+            class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Search something"
+            required
+          />
+          <button
+            type="button"
+            class="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          >
+            Search
+          </button>
+        </div>
+      </form>
+    </div>
+    <!-- Table -->
+    <div class="h-[50vh] container mx-auto mt-10">
+      <!-- Modal toggle -->
 
       <!-- Main modal -->
       <div
@@ -129,7 +172,7 @@
         aria-hidden="true"
         class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full"
       >
-        <div class="relative p-4 w-full max-w-md max-h-full">
+        <div class="relative p-4 w-full max-w-md max-h-full" id="myModal">
           <!-- Modal content -->
           <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
             <!-- Modal header -->
@@ -195,6 +238,35 @@
                 </div>
                 <div class="col-span-2 sm:col-span-1">
                   <label
+                    for="screen"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    >Screen</label
+                  >
+                  <input
+                    type="text"
+                    name="screen"
+                    id="screen"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                    placeholder=""
+                    required=""
+                  />
+                </div>
+                <div class="col-span-2 sm:col-span-1">
+                  <label
+                    for="img"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    >Image</label
+                  ><input
+                    type="text"
+                    name="img"
+                    id="img"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                    placeholder="Paste Image url here"
+                    required=""
+                  />
+                </div>
+                <div class="col-span-2 sm:col-span-1">
+                  <label
                     for="price"
                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                     >Price</label
@@ -223,6 +295,35 @@
                     <option value="Samsung">Samsung</option>
                   </select>
                 </div>
+                <div class="col-span-2 sm:col-span-1">
+                  <label
+                    for="frontCamera"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    >Front Camera</label
+                  >
+                  <input
+                    type="text"
+                    name="frontCamera"
+                    id="frontCamera"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                    placeholder=""
+                    required=""
+                  />
+                </div>
+                <div class="col-span-2 sm:col-span-1">
+                  <label
+                    for="backCamera"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    >Back Camera</label
+                  ><input
+                    type="text"
+                    name="backCamera"
+                    id="backCamera"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                    placeholder=""
+                    required=""
+                  />
+                </div>
                 <div class="col-span-2">
                   <label
                     for="description"
@@ -238,8 +339,9 @@
                 </div>
               </div>
               <button
-                type="submit"
+                type="button"
                 class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                onclick="addProduct()"
               >
                 <svg
                   class="me-1 -ms-1 w-5 h-5"
@@ -256,8 +358,11 @@
                 Add
               </button>
               <button
-                type="submit"
-                class="text-white inline-flex items-center bg-amber-500 hover:bg-amber-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                type="button"
+                data-modal-toggle="crud-modal"
+                class="text-white inline-flex items-center font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-green-500 hover:bg-green-800 mb-1"
+                onclick="updateProduct()"
+                id="btnUpdate"
               >
                 <svg
                   class="me-1 -ms-1 w-5 h-5"
@@ -299,7 +404,7 @@
 
       <!-- Begin Table -->
 
-      <div class="relative overflow-x-auto">
+      <div class="relative overflow-hidden">
         <table
           class="w-full text-sm text-center rtl:text-right text-gray-500 dark:text-gray-400"
         >
@@ -312,6 +417,7 @@
               <th scope="col" class="px-6 py-3">Image</th>
               <th scope="col" class="px-6 py-3">Front Camera</th>
               <th scope="col" class="px-6 py-3">Back Camera</th>
+              <th scope="col" class="px-6 py-3">Screen</th>
               <th scope="col" class="px-6 py-3">Description</th>
               <th scope="col" class="px-6 py-3">Price</th>
               <th scope="col" class="px-6 py-3">Type</th>
@@ -323,78 +429,6 @@
       </div>
     </div>
     <!-- Footer -->
-    <footer class="w-full shadow-lg border-t border-gray-200 text-gray-900">
-      <div class="container mx-auto px-4 py-5 lg:py-8">
-        <div class="max-w-screen-xl mx-auto">
-          <div
-            class="grid grid-cols-1 md:grid-cols-2 lg:gird-cols-3 xl:grid-cols-5 gap-4"
-          >
-            <!-- Cột 1 -->
-            <div>
-              <h5 class="text-lg font-semibold">Shop and Learn</h5>
-              <ul class="mt-4 space-y-2">
-                <li><a href="#" class="hover:underline">Mac</a></li>
-                <li><a href="#" class="hover:underline">iPad</a></li>
-                <li><a href="#" class="hover:underline">iPhone</a></li>
-              </ul>
-            </div>
-            <!-- Cột 2 -->
-            <div>
-              <h5 class="text-lg font-semibold">Services</h5>
-              <ul class="mt-4 space-y-2">
-                <li><a href="#" class="hover:underline">iCloud</a></li>
-                <li><a href="#" class="hover:underline">Apple Pay</a></li>
-                <li><a href="#" class="hover:underline">Apple Books</a></li>
-              </ul>
-            </div>
-            <!-- Cột 3 -->
-            <div>
-              <h5 class="text-lg font-semibold">Account</h5>
-              <ul class="mt-4 space-y-2">
-                <li>
-                  <a href="#" class="hover:underline">Manage Your Apple ID</a>
-                </li>
-                <li>
-                  <a href="#" class="hover:underline">Apple Store Account</a>
-                </li>
-                <li><a href="#" class="hover:underline">iCloud.com</a></li>
-              </ul>
-            </div>
-            <!-- Cột 4 -->
-            <div>
-              <h5 class="text-lg font-semibold">Apple Store</h5>
-              <ul class="mt-4 space-y-2">
-                <li><a href="#" class="hover:underline">Find a Store</a></li>
-
-                <li><a href="#" class="hover:underline">Today at Apple</a></li>
-                <li><a href="#" class="hover:underline">Apple Trade In</a></li>
-              </ul>
-            </div>
-            <!-- Cột 5 -->
-            <div>
-              <h5 class="text-lg font-semibold">For Business</h5>
-              <ul class="mt-4 space-y-2">
-                <li>
-                  <a href="#" class="hover:underline">Apple and Business</a>
-                </li>
-                <li>
-                  <a href="#" class="hover:underline">Shop for Business</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div
-          class="flex items-center justify-center mt-12 border-t border-gray-300 pt-6 text-gray-400"
-        >
-          <i class="fab fa-js-square text-yellow-300 text-3xl mx-3"></i>
-          <span class="text-sm lg:text-lg hover:underline">
-            JS &nbsp;Capstone &nbsp;Project</span
-          >
-        </div>
-      </div>
-    </footer>
 
     <!-- scipt navbar link -->
     <script>
@@ -415,6 +449,13 @@
       }
     </script>
 
+    <!-- Jquerry -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <!-- AXIOS CDN -->
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/axios.min.js"
