@@ -5,7 +5,7 @@ export default class Product {
     price,
     screen,
     backCamera,
-    fontCamera,
+    frontCamera,
     img,
     desc,
     type
@@ -15,7 +15,7 @@ export default class Product {
       (this.price = price),
       (this.screen = screen),
       (this.backCamera = backCamera),
-      (this.fontCamera = fontCamera),
+      (this.frontCamera = frontCamera),
       (this.img = img),
       (this.desc = desc),
       (this.type = type);
