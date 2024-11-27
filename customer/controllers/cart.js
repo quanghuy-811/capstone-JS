@@ -166,6 +166,7 @@ document.querySelector("#pay").onclick = () => {
   } else {
     cartModel.clearCart();
     renderCart(cartModel.getCart());
+    updateCartBadge(cartModel.totalQuantity());
     alert("Thank You");
   }
 };
