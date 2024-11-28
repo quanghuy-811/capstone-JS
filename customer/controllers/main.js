@@ -1,5 +1,6 @@
 import Cart from "../models/modelCart.js";
-import { productServices } from "../services/ServiceProduct.js";
+import { productServices } from "../services/serviceProduct.js";
+
 import { getEle, updateCartBadge } from "../util/util.js";
 
 const cartModel = new Cart();
